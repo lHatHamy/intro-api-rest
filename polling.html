@@ -9,34 +9,41 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">IoT Dashboard</a>
+      <a class="navbar-brand fw-bold" href="#">IoT Dashboard</a>
       <div class="d-flex">
-        <!-- Botón para ir a la app principal -->
         <a href="index.html" class="btn btn-outline-light me-2">Ver últimos 5</a>
       </div>
     </div>
   </nav>
 
-  <main class="container my-4">
-    <h1 class="mb-4">Monitor IoT (Polling cada 2s — Últimos 10)</h1>
+  <main class="container my-5">
+    <h1 class="mb-4 text-primary fw-bold">Monitor IoT (Polling cada 2s)</h1>
 
-    <div id="ultimoStatusPoll" class="alert alert-info">
-      Último status: <span id="statusValorPoll">Cargando...</span>
+    <div id="ultimoStatusPoll" class="alert alert-info shadow-sm">
+      <strong>Último status:</strong> <span id="statusValorPoll">Cargando...</span>
     </div>
 
-    <h3>Últimos 10 registros</h3>
-    <table class="table table-striped">
-      <thead>
-        <tr><th>ID</th><th>Dispositivo</th><th>Status</th><th>IP</th><th>Fecha</th></tr>
-      </thead>
-      <tbody id="tablaRegistrosPoll"></tbody>
-    </table>
+    <h3 class="text-secondary mt-4">Últimos 10 registros</h3>
+    <div class="table-responsive shadow-sm">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Dispositivo</th>
+            <th>Status</th>
+            <th>IP</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="tablaRegistrosPoll"></tbody>
+      </table>
+    </div>
   </main>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p>Desarrollado por Brandon © 2025</p>
+  <footer class="bg-primary text-white text-center py-3 mt-5 shadow-sm">
+    <p class="mb-0">Desarrollado por Brandon © 2025</p>
   </footer>
 
   <script src="js/polling.js"></script>

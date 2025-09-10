@@ -9,62 +9,76 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">IoT Dashboard</a>
+      <a class="navbar-brand fw-bold" href="#">IoT Dashboard</a>
       <div class="d-flex">
-        <!-- Botón para ir a la otra app -->
         <a href="polling.html" class="btn btn-outline-light me-2">Ver últimos 10 (Polling)</a>
       </div>
     </div>
   </nav>
 
-  <main class="container my-4">
-    <h1 class="mb-4">Control de Dispositivos IoT (Últimos 5)</h1>
+  <main class="container my-5">
+    <h1 class="mb-4 text-primary fw-bold">Control de Dispositivos IoT</h1>
 
-    <!-- Formulario (nombre + status) -->
-    <form id="statusForm" class="mb-4">
-      <div class="mb-3">
-        <label for="deviceName" class="form-label">Nombre del dispositivo</label>
-        <input type="text" id="deviceName" class="form-control" placeholder="Ej. Robot1" required>
+    <!-- Formulario -->
+    <div class="card shadow-sm mb-4 border-0">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Agregar nuevo registro</h5>
+        <form id="statusForm" class="row g-3">
+          <div class="col-md-6">
+            <label for="deviceName" class="form-label">Nombre del dispositivo</label>
+            <input type="text" id="deviceName" class="form-control" placeholder="Ej. Robot1" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="status" class="form-label">Selecciona un estado</label>
+            <select class="form-select" id="status" required>
+              <option value="">-- Elige una opción --</option>
+              <option>ADELANTE</option>
+              <option>ATRÁS</option>
+              <option>DETENER</option>
+              <option>ADELANTE DERECHA</option>
+              <option>ADELANTE IZQUIERDA</option>
+              <option>ATRÁS DERECHA</option>
+              <option>ATRÁS IZQUIERDA</option>
+              <option>GIRO 90° DERECHA</option>
+              <option>GIRO 90° IZQUIERDA</option>
+              <option>GIRO 360° DERECHA</option>
+              <option>GIRO 360° IZQUIERDA</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary px-4">Agregar Registro</button>
+          </div>
+        </form>
       </div>
-
-      <div class="mb-3">
-        <label for="status" class="form-label">Selecciona un estado</label>
-        <select class="form-select" id="status" required>
-          <option value="">-- Elige una opción --</option>
-          <option>ADELANTE</option>
-          <option>ATRÁS</option>
-          <option>DETENER</option>
-          <option>ADELANTE DERECHA</option>
-          <option>ADELANTE IZQUIERDA</option>
-          <option>ATRÁS DERECHA</option>
-          <option>ATRÁS IZQUIERDA</option>
-          <option>GIRO 90° DERECHA</option>
-          <option>GIRO 90° IZQUIERDA</option>
-          <option>GIRO 360° DERECHA</option>
-          <option>GIRO 360° IZQUIERDA</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Agregar Registro</button>
-    </form>
-
-    <div id="ultimoStatus" class="alert alert-info">
-      Último status: <span id="statusValor">Cargando...</span>
     </div>
 
-    <h3>Últimos 5 registros</h3>
-    <table class="table table-striped">
-      <thead>
-        <tr><th>ID</th><th>Dispositivo</th><th>Status</th><th>IP</th><th>Fecha</th></tr>
-      </thead>
-      <tbody id="tablaRegistros"></tbody>
-    </table>
+    <div id="ultimoStatus" class="alert alert-info shadow-sm">
+      <strong>Último status:</strong> <span id="statusValor">Cargando...</span>
+    </div>
+
+    <h3 class="text-secondary mt-4">Últimos 5 registros</h3>
+    <div class="table-responsive shadow-sm">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Dispositivo</th>
+            <th>Status</th>
+            <th>IP</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="tablaRegistros"></tbody>
+      </table>
+    </div>
   </main>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p>ITP © 2025</p>
+  <footer class="bg-primary text-white text-center py-3 mt-5 shadow-sm">
+    <p class="mb-0">ITP © 2025 — Panel de monitoreo IoT</p>
   </footer>
 
   <script src="js/app.js"></script>
