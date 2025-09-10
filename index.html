@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dispositivos IoT — Últimos 5</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IoT Dashboard</a>
+      <div class="d-flex">
+        <!-- Botón para ir a la otra app -->
+        <a href="polling.html" class="btn btn-outline-light me-2">Ver últimos 10 (Polling)</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <h1 class="mb-4">Control de Dispositivos IoT (Últimos 5)</h1>
+
+    <!-- Formulario (nombre + status) -->
+    <form id="statusForm" class="mb-4">
+      <div class="mb-3">
+        <label for="deviceName" class="form-label">Nombre del dispositivo</label>
+        <input type="text" id="deviceName" class="form-control" placeholder="Ej. Robot1" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="status" class="form-label">Selecciona un estado</label>
+        <select class="form-select" id="status" required>
+          <option value="">-- Elige una opción --</option>
+          <option>ADELANTE</option>
+          <option>ATRÁS</option>
+          <option>DETENER</option>
+          <option>ADELANTE DERECHA</option>
+          <option>ADELANTE IZQUIERDA</option>
+          <option>ATRÁS DERECHA</option>
+          <option>ATRÁS IZQUIERDA</option>
+          <option>GIRO 90° DERECHA</option>
+          <option>GIRO 90° IZQUIERDA</option>
+          <option>GIRO 360° DERECHA</option>
+          <option>GIRO 360° IZQUIERDA</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Agregar Registro</button>
+    </form>
+
+    <div id="ultimoStatus" class="alert alert-info">
+      Último status: <span id="statusValor">Cargando...</span>
+    </div>
+
+    <h3>Últimos 5 registros</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr><th>ID</th><th>Dispositivo</th><th>Status</th><th>IP</th><th>Fecha</th></tr>
+      </thead>
+      <tbody id="tablaRegistros"></tbody>
+    </table>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>ITP © 2025</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
